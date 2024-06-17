@@ -1,0 +1,20 @@
+<ul>
+    <li *ngFor="let org of organizations">
+      <span (click)="toggleExpand(org.organizationId)">
+        <span *ngIf="org.childOrganizations.length > 0">
+          {{ isExpanded(org.organizationId) ? '[-]' : '[+]' }}
+        </span>
+        {{ org.name }}
+      </span>
+      <ul *ngIf="isExpanded(org.organizationId)">
+        <app-org *ngIf="org.childOrganizations.length > 0" [organizations]="org.childOrganizations"></app-org>
+      </ul>
+    </li>
+  </ul>
+
+  <button (click)="printOrganizationTree(organizations)">click me hehe</button>
+
+
+
+
+ 
